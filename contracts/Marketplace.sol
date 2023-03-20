@@ -446,11 +446,6 @@ contract Marketplace is IMarketplace, Ownable, Royalty, ReentrancyGuard {
         onlyTradingOpen
         onlyAllowedExpireTimestamp(expireTimestamp)
     {
-        Bid memory bidData = getBidderTokenBid(
-            contractAddress,
-            tokenId,
-            msg.sender
-        );
         value = msg.value;
         Bid memory bid = Bid(
             tokenId,
@@ -688,6 +683,26 @@ contract Marketplace is IMarketplace, Ownable, Royalty, ReentrancyGuard {
                 bids[i] = bid;
             }
         }
+    }
+
+    /**
+    @dev See {TheeNFTMarketplace-CheckBid}
+    **/
+
+    function CheckBidisValid(
+        address contractAddress,
+        uint256 tokenId
+    ) internal view returns (bool) {
+        Bid memory bid = _erc721Market[contractAddress].bids[tokenId].bids[
+            contractAddress
+        ];
+        return true;
+        // Listing memory listing = _erc721Market[contractAddress].listings[
+        //     tokenId
+        // ];
+        // if (_isListingValid(contractAddress, listing)) {
+        //     validListing = listing;
+        // }
     }
 
     /**

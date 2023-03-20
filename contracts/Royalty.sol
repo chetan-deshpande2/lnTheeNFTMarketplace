@@ -54,10 +54,8 @@ contract Royalty is IRoyalty, Ownable {
             "Please set the royalty percentange below allowed range"
         );
 
-        require(
-            msg.sender == royalty(contractAddress).recipient,
-            "Only ERC721 royalty recipient is allowed to set Royalty"
-        );
+        address nftOwner = _nftOwner(contractAddress);
+        require(nftOwner == msg.sender, "Contract Owner");
 
         _collectionRoyalty[contractAddress] = CollectionRoyalty({
             recipient: newRecipient,
