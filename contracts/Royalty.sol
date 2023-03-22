@@ -54,8 +54,8 @@ contract Royalty is IRoyalty, Ownable {
             "Please set the royalty percentange below allowed range"
         );
 
-        address nftOwner = _nftOwner(contractAddress);
-        require(nftOwner == msg.sender, "Contract Owner");
+        // address nftOwner = _nftOwner(contractAddress);
+        // require(nftOwner == msg.sender, "Contract Owner");
 
         _collectionRoyalty[contractAddress] = CollectionRoyalty({
             recipient: newRecipient,
