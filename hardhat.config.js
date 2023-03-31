@@ -6,6 +6,7 @@ require('solidity-coverage');
 
 const {
   PRIVATE_KEY,
+  PRIVATE_KEY2,
   POLYGON_API_KEY,
   POLYGON_RPC_URL,
   ETHEREUM_API_KEY,
@@ -44,6 +45,10 @@ module.exports = {
     },
     goerliTestnet: {
       url: 'https://eth-goerli.g.alchemy.com/v2/KinLNLcEoSgPTt8pYT49ZbVlQxYBz0Cm',
+      accounts: [PRIVATE_KEY2],
+    },
+    sepoliaTestnet: {
+      url: 'https://eth-sepolia.g.alchemy.com/v2/HaLHCh_p9--LqitAAC8Dca1SdDFXuBAn',
       accounts: [PRIVATE_KEY],
     },
     polygonMainnet: {
@@ -80,7 +85,8 @@ module.exports = {
     //   binance: '',
     //   harmony: '',
     // },
-    apiKey: POLYGON_API_KEY,
+    // apiKey: POLYGON_API_KEY,
     // apiKey: BINANCE_API_KEY,
+    apiKey: ETHEREUM_API_KEY,
   },
 };
